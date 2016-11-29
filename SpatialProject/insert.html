@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>
+			My Map
+		</title>
+		<link rel="stylesheet" href="lib/leaflet/leaflet.css" />
+		<script src="lib/leaflet/leaflet.js"></script>
+		<script src="data/countries.geojson"></script>
+		<style type="text/css">
+			#map { height : 400px; }
+			.legend { background : white; line-height : 1.5em}
+			.legend i { width : 5em; float : left }
+		</style>
+	</head>
+	<body>
+		<h1>My Map</h1>
+		<div id="map"></div>
+	<script >
+			var map = L.map('map').setView([17.445, 78.346], 17);
+			 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: ' &copy;',
+    maxZoom: 50,
+    id: 'sunand.21mgcko3',
+    accessToken: 'pk.eyJ1Ijoic3VuYW5kIiwiYSI6ImNpdjZqbDRkOTAwMHcyb3BpdXEzYnR4aXUifQ.s2KZyoGvO2AFEcrmAdCRUw'
+}).addTo(map);
+var vindhya = L.polygon([
+    [17.44507, 78.35014],[17.44514, 78.35021],[17.44522, 78.35011],[17.44551, 78.35037],
+    [17.44539, 78.35049],[17.44554, 78.35066],[17.44652, 78.34949],[17.44638, 78.34935],[17.44627, 78.34948],[17.44601, 78.34924],[17.44607, 78.34915],[17.44596, 78.34904]
+	
+]).addTo(map);
+var obh = L.polygon([
+    [17.44552, 78.34601],[17.44551, 78.34598],[17.4455, 78.34597],[17.44549, 78.34593],[17.4455, 78.34593],[17.44553, 78.3459],[17.44553, 78.34588],[17.44556, 78.34585],[17.44558, 78.34586],[17.4456, 78.34584],[17.44544, 78.34549],[17.44505, 78.34533],[17.44504, 78.34541],[17.445, 78.34541],[17.44498, 78.34545],[17.44494, 78.34545],[17.44491, 78.34543],[17.44493, 78.34586],[17.44488, 78.34591],[17.44448, 78.34595],[17.4445, 78.34601],[17.44446, 78.34607],[17.4444, 78.34611],[17.44457, 78.34647],[17.44495, 78.34661],[17.44495, 78.34654],[17.445, 78.34652],[17.44502, 78.34649],[17.44509, 78.3465],[17.44508, 78.34611],[17.44513, 78.34603]
+	
+]).addTo(map);
+
+	var nilgiri = L.polygon([
+	[17.44715, 78.34914],[17.447, 78.349],[17.44698, 78.34902],[17.44695, 78.349],[17.44696, 78.34897],[17.44685, 78.34885],[17.44688, 78.34881],[17.44687, 78.34879],[17.44727, 78.34832],[17.44729, 78.34835],[17.44734, 78.3483],[17.44763, 78.34857],[17.44759, 78.34862],[17.44761, 78.34864],[17.44747, 78.3488],[17.44743, 78.34876],[17.44742, 78.34877],[17.44744, 78.34879],[17.44733, 78.34892],[17.44731, 78.34891],[17.44729, 78.34892],[17.44734, 78.34896],[17.44721, 78.34911]
+
+	]).addTo(map);
+var thub = L.polygon([
+	[17.4455, 78.34879],[17.44578, 78.34905],[17.44595, 78.34884],[17.44567, 78.34859]
+	]).addTo(map);
+
+var himalaya = L.polygon([
+		[17.44571, 78.34905],[17.44559, 78.34894],[17.44554, 78.34899],[17.44544, 78.3489],[17.44538, 78.34897],[17.44536, 78.34895],[17.44529, 78.34902],[17.44542, 78.34913],[17.44541, 78.34915],[17.44534, 78.34909],[17.44529, 78.34916],[17.44535, 78.34921],[17.44534, 78.34922],[17.44522, 78.34911],[17.44516, 78.34918],[17.44537, 78.34938],[17.44543, 78.34931],[17.44546, 78.34934],[17.44552, 78.34927],[17.4455, 78.34924],[17.44551, 78.34922],[17.44558, 78.34928],[17.4457, 78.34914],[17.44567, 78.3491]
+
+	]).addTo(map);
+
+var fg = L.polygon([
+		[17.44563, 78.34634],[17.44625, 78.3469],[17.44659, 78.34648],[17.44598, 78.34592]
+
+	]).addTo(map);
+
+var footballground = L.polygon([
+	[17.44632, 78.34862],[17.44667, 78.34893],[17.44729, 78.34822],[17.44695, 78.3479]
+	]).addTo(map);
+
+var basketball = L.polygon([
+		[17.44752, 78.34817],[17.44764, 78.34828],[17.44783, 78.34806],[17.44772, 78.34794]
+
+	]).addTo(map);
+var kohliblock = L.polygon([
+		[17.44532, 78.34961],[17.44517, 78.3498],[17.44514, 78.34977],[17.44508, 78.34984],[17.44498, 78.34976],[17.44502, 78.3497],[17.445, 78.34969],[17.44496, 78.34974],[17.44483, 78.34962],[17.44489, 78.34955],[17.44487, 78.34953],[17.44507, 78.34927],[17.44517, 78.34935],[17.44513, 78.3494],[17.44516, 78.34943],[17.44521, 78.34937],[17.44524, 78.34939],[17.44519, 78.34946],[17.44522, 78.34948],[17.44526, 78.34943],[17.44534, 78.34952],[17.44529, 78.34959]
+	]).addTo(map);
+var polygonsloop = [vindhya,obh, nilgiri,thub,himalaya,fg,footballground,basketball,kohliblock];
+var polygonsloopname = ["vindhya","obh", "nilgiri","thub","himalaya","fg","footballground","basketball","kohliblock"];
+var popup = L.popup();
+var lat,long,x;
+
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(map);
+        var i;
+        
+     for(i=0;i<polygonsloop.length;i++)
+        {
+        	
+			if(polygonsloop[i].getBounds().contains(e.latlng)==true)
+				{
+					
+    				if(confirm("Is event location at " + polygonsloopname[i]+" ??"))
+    				{
+    					x=polygonsloopname[i];
+    					document.getElementById("hidden1").value = x;
+    					document.getElementById("hidden2").value = e.latlng.lat;
+    					document.getElementById("hidden3").value = e.latlng.lng;
+    				}
+    				
+				}
+		}
+}
+map.on('click', onMapClick);
+function checkform(evt)
+{
+	var myForm=document.insertform;
+	var condition = true;
+	if(myForm.EventName.value==""){
+		alert("Please name the event");	
+		condition= false;
+	}
+    if (myForm.EventDate.value==""){
+		alert("Please enter date.");
+		condition= false;
+	}
+	if(myForm.EventTime.value==""){
+		alert("Please enter event time.");
+		condition= false;
+	}
+	if(myForm.hidden1.value==""){
+		alert("Please select location.");
+		condition= false;
+	}
+	if(myForm.EventType.value==""){
+		alert("Please select Event Type");
+		condition= false;
+	}
+	if(condition)
+	{ 
+		condition =  confirm('Do you want to submit the form?'); }
+	if(!condition) {
+            if(evt.preventDefault) { event.preventDefault(); }    
+            else if(evt.returnValue) { evt.returnValue = false; }    
+            else { return false; }
+        }
+	
+		
+}	
+		</script>
+		<form  action="insert.php" name="insertform" method="POST" onsubmit="checkform(event)">
+		Event Name : <input type="text" name = "EventName"><br/><br/>
+		Date : <input type="date" name = "EventDate">
+		Time : <input type="time" name = "EventTime"><br/> <br/>
+		<select name="EventType">
+    <option value="Academic">Academic</option>
+    <option value="Sports">Sports</option>
+    <option value="cultural">cultural</option>
+</select>
+        <input type="hidden" name="hidden1" id="hidden1" required/><br/><br/>
+        <input type="hidden" name="hidden2" id="hidden2" required/>
+        <input type="hidden" name="hidden3" id="hidden3" required/>
+        <input type="submit" value="Insert">
+</form>
+	</body>
+</html>

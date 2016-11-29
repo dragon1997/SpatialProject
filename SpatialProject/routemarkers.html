@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>
+			My Map
+		</title>
+		<link rel="stylesheet" href="lib/leaflet/leaflet.css" />
+		<script src="lib/leaflet/leaflet.js"></script>
+		<script src="data/countries.geojson"></script>
+		<style type="text/css">
+			#map { height : 400px; }
+			.legend { background : white; line-height : 1.5em}
+			.legend i { width : 5em; float : left }
+		</style>
+	</head>
+	<body>
+		<h1>My Map</h1>
+		<div id="map"></div>
+	<script >
+			var counter = 1;
+			var map = L.map('map').setView([17.445, 78.346], 17);
+			 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: ' &copy;',
+    maxZoom: 50,
+    id: 'sunand.21mgcko3',
+    accessToken: 'pk.eyJ1Ijoic3VuYW5kIiwiYSI6ImNpdjZqbDRkOTAwMHcyb3BpdXEzYnR4aXUifQ.s2KZyoGvO2AFEcrmAdCRUw'
+}).addTo(map);
+
+
+
+function onMapClick(e) {
+    
+
+        if(counter == 1){
+        	localStorage.setItem("point1lat", e.latlng.lat);
+        	localStorage.setItem("point1lng", e.latlng.lng);
+        	counter++;
+        	var newMarker = new L.marker(e.latlng).addTo(map);
+    	} else if (counter==2){
+        	localStorage.setItem("point2lat", e.latlng.lat);
+        	localStorage.setItem("point2lng", e.latlng.lng);
+        	counter++;
+        	var newMarker = new L.marker(e.latlng).addTo(map);
+    	}
+}
+map.on('click', onMapClick);
+		</script>
+		
+		<div id="submitbutton">
+		<button onclick="change()"> Submit </button>
+		<br/><br/>
+		<button onclick="function3()">Go back to main page</button>
+		</div>
+		<script type="text/javascript">
+			function function3(){
+				window.location = "http://localhost/SpatialProject/index.html";
+			}
+			function change(){
+				//console.log(window.location.pathname);	
+				window.location = "http://localhost/SpatialProject/route.html";
+			}
+		</script>
+	</body>
+</html>

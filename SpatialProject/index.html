@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<style>
+.login
+{
+	background-color: #4CAF50;
+	width:20%;
+
+	margin: 10% 35%;
+	
+	
+	padding-left:50px ;
+	padding-top: 20px;
+	padding-bottom: 30px;
+	border-style: solid;
+    border-color: green;
+    border-width: 5px;
+}
+.head{
+
+	margin-left: 25%;
+}
+</style>
+<head>
+	<title>
+		Insert Form Data In MYSQL Database using PHP
+	</title>
+</head>
+<body>
+<script type="text/javascript">
+	function checkform(evt)
+{
+	var myForm=document.queryform;
+	var condition = true;
+	if(myForm.date3.value==""){
+		if (myForm.time3.value!=""){
+		confirm("Please enter date or remove time");
+		condition= false;
+		}
+	}
+
+	if(condition)
+	{ 
+		condition =  confirm('Do you want to submit the form?'); }
+	if(!condition) {
+            if(evt.preventDefault) { event.preventDefault(); }    
+            else if(evt.returnValue) { evt.returnValue = false; }    
+            else { return false; }
+        }
+	
+		
+}
+</script>
+<h1>To show all date events just click submit without giving date and insert time can be used when we want to see all events on that date after that time</h1>
+<div class="login">
+	<h1 class="head"></h1>
+<form action="output.php" name="queryform" method="post" onsubmit="checkform(event)">
+
+Date: <input type="date" name = "date3"><br/><br/>
+Time: <input type="time" name = "time3"><br/><br/>
+<br>
+<input type="submit" value="Query"></input>
+</form>
+</div>
+</body>
+</html>

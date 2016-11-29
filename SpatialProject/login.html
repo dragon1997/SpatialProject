@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<style>
+.login
+{
+	background-color: #4CAF50;
+	width:20%;
+
+	margin: 10% 35%;
+	
+	
+	padding-left:50px ;
+	padding-top: 20px;
+	padding-bottom: 30px;
+	border-style: solid;
+    border-color: green;
+    border-width: 5px;
+}
+.head{
+
+	margin-left: 25%;
+}
+</style>
+<head>
+	<title>
+		Insert Form Data In MYSQL Database using PHP
+	</title>
+</head>
+<body>
+<div class="login">
+	<h1 class="head">LOGIN</h1>
+<form action="insert2.php" method="post" >
+
+AdminID: <input type="text" name = "adminid"><br/><br/>
+Password: <input type="password" name = "pswd"><br/><br/>
+<br>
+<input type="submit" value="Log In"></input>
+</form>
+</div>
+<button onclick="function6()">Go back to main page</button>
+<script type="text/javascript">
+	function function6(){
+                window.location = "http://localhost/SpatialProject/index.html";
+            }
+</script>
+
+
+</body>
+</html>
