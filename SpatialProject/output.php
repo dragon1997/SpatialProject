@@ -253,29 +253,65 @@ for(j in filter)
 {
 	if(filter[j]['Event_Type']=="Academic")
 	{
+		if(filter[j]['Event_ADD_Location']==null)
+		{
 		numofeventsA[filter[j]['Event_Location']]+=1;
 		markervA[markervAcount]=L.marker([filter[j]['Event_Lat'],filter[j]['Event_lng']]);
-		markervA[markervAcount].bindPopup("Event Name: "+ filter[j]['Event_Name'].toString()+ "<br/> Event Date: "+filter[j]['Event_Date'].toString()+"<br/> Event Start Time: "+ filter[j]['Event_Time_Start'].toString()+ "<br/> Event End Time:"+ filter[j]['Event_Time_End'].toString());
+		markervA[markervAcount].bindPopup("Event Name: "+ filter[j]['Event_Name'].toString()+ "<br/> Event Location: "+filter[j]['Event_Location'].toString()+"<br/> Event Date: "+filter[j]['Event_Date'].toString()+"<br/> Event Start Time: "+ filter[j]['Event_Time_Start'].toString()+ "<br/> Event End Time:"+ filter[j]['Event_Time_End'].toString());
 		markervAcount++;
+	}
+	else
+	{
+		numofeventsA[filter[j]['Event_Location']]+=1;
+		markervA[markervAcount]=L.marker([filter[j]['Event_Lat'],filter[j]['Event_lng']]);
+		markervA[markervAcount].bindPopup("Event Name: "+ filter[j]['Event_Name'].toString()+ "<br/> Event Location: "+" "+ filter[j]['Event_Location'].toString() +","+filter[j]['Event_ADD_Location'].toString() + "<br/> Event Date: "+filter[j]['Event_Date'].toString()+"<br/> Event Start Time: "+ filter[j]['Event_Time_Start'].toString()+ "<br/> Event End Time:"+ filter[j]['Event_Time_End'].toString());
+		markervAcount++;
+	}
 	}
 	else if(filter[j]['Event_Type']=="Sports")
 	{
+		if(filter[j]['Event_ADD_Location']==null){
 		numofeventsS[filter[j]['Event_Location']]+=1;
 		markervS[markervScount]=L.marker([filter[j]['Event_Lat'],filter[j]['Event_lng']]);
-		markervS[markervScount].bindPopup("Event Name: "+ filter[j]['Event_Name'].toString()+ "<br/> Event Date: "+filter[j]['Event_Date'].toString()+"<br/> Event Start Time: "+ filter[j]['Event_Time_Start'].toString()+"<br/> Event End Time:"+ filter[j]['Event_Time_End'].toString());
+		markervS[markervScount].bindPopup("Event Name: "+ filter[j]['Event_Name'].toString()+ "<br/> Event Location: "+filter[j]['Event_Location'].toString()+"<br/> Event Date: "+filter[j]['Event_Date'].toString()+"<br/> Event Start Time: "+ filter[j]['Event_Time_Start'].toString()+"<br/> Event End Time:"+ filter[j]['Event_Time_End'].toString());
 		markervScount++;
+	}
+	else
+	{
+		numofeventsS[filter[j]['Event_Location']]+=1;
+		markervS[markervScount]=L.marker([filter[j]['Event_Lat'],filter[j]['Event_lng']]);
+		markervS[markervScount].bindPopup("Event Name: "+ filter[j]['Event_Name'].toString()+ "<br/> Event Location:"+" "+ filter[j]['Event_Location'].toString() +","+filter[j]['Event_ADD_Location'].toString()+"<br/> Event Date: "+filter[j]['Event_Date'].toString()+"<br/> Event Start Time: "+ filter[j]['Event_Time_Start'].toString()+"<br/> Event End Time:"+ filter[j]['Event_Time_End'].toString());
+		markervScount++;
+	}
 	}
 	else if(filter[j]['Event_Type']=="cultural")
 	{
+		if(filter[j]['Event_ADD_Location']==null){
 		numofeventsE[filter[j]['Event_Location']]+=1;
 		markervE[markervEcount]=L.marker([filter[j]['Event_Lat'],filter[j]['Event_lng']]);
-		markervE[markervEcount].bindPopup("Event Name: "+ filter[j]['Event_Name'].toString()+ "<br/> Event Date: "+filter[j]['Event_Date'].toString()+"<br/> Event Start Time: "+ filter[j]['Event_Time_Start'].toString()+"<br/> Event End Time:"+ filter[j]['Event_Time_End'].toString());
+		markervE[markervEcount].bindPopup("Event Name: "+ filter[j]['Event_Name'].toString()+ "<br/> Event Location: "+filter[j]['Event_Location'].toString()+"<br/> Event Date: "+filter[j]['Event_Date'].toString()+"<br/> Event Start Time: "+ filter[j]['Event_Time_Start'].toString()+"<br/> Event End Time:"+ filter[j]['Event_Time_End'].toString());
 		markervEcount++;
 	}
+	else{
+		numofeventsE[filter[j]['Event_Location']]+=1;
+		markervE[markervEcount]=L.marker([filter[j]['Event_Lat'],filter[j]['Event_lng']]);
+		markervE[markervEcount].bindPopup("Event Name: "+ filter[j]['Event_Name'].toString()+ "<br/> Event Location: "+" "+ filter[j]['Event_Location'].toString() +","+filter[j]['Event_ADD_Location'].toString()+ "<br/> Event Date: "+filter[j]['Event_Date'].toString()+"<br/> Event Start Time: "+ filter[j]['Event_Time_Start'].toString()+"<br/> Event End Time:"+ filter[j]['Event_Time_End'].toString());
+		markervEcount++;
+	}
+	}
+	if(filter[j]['Event_ADD_Location']==null){
 	numofevents[filter[j]['Event_Location']]++;
 	eventcount++;
 	markerv[j]=L.marker([filter[j]['Event_Lat'],filter[j]['Event_lng']]);
-	markerv[j].bindPopup("Event Name: "+ filter[j]['Event_Name'].toString()+ "<br/> Event Date: "+filter[j]['Event_Date'].toString()+"<br/> Event Start Time: "+ filter[j]['Event_Time_Start'].toString()+"<br/> Event End Time:"+ filter[j]['Event_Time_End'].toString());
+	markerv[j].bindPopup("Event Name: "+ filter[j]['Event_Name'].toString()+"<br/> Event Location: "+filter[j]['Event_Location'].toString()+ "<br/> Event Date: "+filter[j]['Event_Date'].toString()+"<br/> Event Start Time: "+ filter[j]['Event_Time_Start'].toString()+"<br/> Event End Time:"+ filter[j]['Event_Time_End'].toString());
+}
+else
+{
+	numofevents[filter[j]['Event_Location']]++;
+	eventcount++;
+	markerv[j]=L.marker([filter[j]['Event_Lat'],filter[j]['Event_lng']]);
+	markerv[j].bindPopup("Event Name: "+ filter[j]['Event_Name'].toString()+ "<br/> Event Location: "+" "+ filter[j]['Event_Location'].toString() +","+filter[j]['Event_ADD_Location'].toString()+ "<br/> Event Date: "+filter[j]['Event_Date'].toString()+"<br/> Event Start Time: "+ filter[j]['Event_Time_Start'].toString()+"<br/> Event End Time:"+ filter[j]['Event_Time_End'].toString());
+}
 }
 var xoa=0,xos=0,xoe=0,xo=0;
 for(var i=0;i<polygonsloop.length;i++)
