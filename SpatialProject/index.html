@@ -37,6 +37,17 @@
 		confirm("Please enter date or remove time");
 		condition= false;
 		}
+		if (myForm.time43.value!=""){
+		confirm("Please enter date or remove time");
+		condition= false;
+		}
+	}
+	if(myForm.time3.value!="")
+	{
+		if (myForm.time43.value==""){
+		confirm("Please enter end time");
+		condition= false;
+		}	
 	}
 
 	if(condition)
@@ -51,13 +62,13 @@
 		
 }
 </script>
-<h1>To show all date events just click submit without giving date and insert time can be used when we want to see all events on that date after that time</h1>
+<h1>To show all date events just click submit without giving date and insert time can be used when we want to see all events on that date after that time1 and before that time2</h1>
 <div class="login">
 	<h1 class="head"></h1>
 <form action="output.php" name="queryform" method="post" onsubmit="checkform(event)">
 
 Date: <input type="date" name = "date3"><br/><br/>
-Time: <input type="time" name = "time3"><br/><br/>
+Time: <input type="time" name = "time3"> & <input type="time" name = "time43"><br/><br/>
 <br>
 <input type="submit" value="Query"></input>
 </form>

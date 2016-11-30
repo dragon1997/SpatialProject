@@ -23,6 +23,7 @@ $password = "iiit123";
 $dbname = "spatialproject";
 $date4=$_POST['date3'];
 $time4=$_POST['time3'];
+$time5=$_POST['time43'];
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
 	echo "No";
@@ -33,9 +34,9 @@ else
 	{
 		$sql = "select * from spatialtable";
 	}
-	else if($date4!=null&$time4!=null)
+	else if($date4!=null&$time4!=null&$time5!=null)
 	{
-		$sql = "select * from spatialtable WHERE Event_Date = '$date4' AND Event_Time > '$time4' ";
+		$sql = "select * from spatialtable WHERE Event_Date = '$date4' AND ((Event_Time_End > '$time4' AND Event_Time_End < '$time5') OR (Event_Time_Start > '$time4' AND Event_Time_Start < '$time5')) ";
 	}
 	else
 	{
@@ -254,27 +255,27 @@ for(j in filter)
 	{
 		numofeventsA[filter[j]['Event_Location']]+=1;
 		markervA[markervAcount]=L.marker([filter[j]['Event_Lat'],filter[j]['Event_lng']]);
-		markervA[markervAcount].bindPopup("Event Name: "+ filter[j]['Event_Name'].toString()+ "<br/> Event Date: "+filter[j]['Event_Date'].toString()+"<br/> Event Time: "+ filter[j]['Event_Time'].toString());
+		markervA[markervAcount].bindPopup("Event Name: "+ filter[j]['Event_Name'].toString()+ "<br/> Event Date: "+filter[j]['Event_Date'].toString()+"<br/> Event Start Time: "+ filter[j]['Event_Time_Start'].toString()+ "<br/> Event End Time:"+ filter[j]['Event_Time_End'].toString());
 		markervAcount++;
 	}
 	else if(filter[j]['Event_Type']=="Sports")
 	{
 		numofeventsS[filter[j]['Event_Location']]+=1;
 		markervS[markervScount]=L.marker([filter[j]['Event_Lat'],filter[j]['Event_lng']]);
-		markervS[markervScount].bindPopup("Event Name: "+ filter[j]['Event_Name'].toString()+ "<br/> Event Date: "+filter[j]['Event_Date'].toString()+"<br/> Event Time: "+ filter[j]['Event_Time'].toString());
+		markervS[markervScount].bindPopup("Event Name: "+ filter[j]['Event_Name'].toString()+ "<br/> Event Date: "+filter[j]['Event_Date'].toString()+"<br/> Event Start Time: "+ filter[j]['Event_Time_Start'].toString()+"<br/> Event End Time:"+ filter[j]['Event_Time_End'].toString());
 		markervScount++;
 	}
 	else if(filter[j]['Event_Type']=="cultural")
 	{
 		numofeventsE[filter[j]['Event_Location']]+=1;
 		markervE[markervEcount]=L.marker([filter[j]['Event_Lat'],filter[j]['Event_lng']]);
-		markervE[markervEcount].bindPopup("Event Name: "+ filter[j]['Event_Name'].toString()+ "<br/> Event Date: "+filter[j]['Event_Date'].toString()+"<br/> Event Time: "+ filter[j]['Event_Time'].toString());
+		markervE[markervEcount].bindPopup("Event Name: "+ filter[j]['Event_Name'].toString()+ "<br/> Event Date: "+filter[j]['Event_Date'].toString()+"<br/> Event Start Time: "+ filter[j]['Event_Time_Start'].toString()+"<br/> Event End Time:"+ filter[j]['Event_Time_End'].toString());
 		markervEcount++;
 	}
 	numofevents[filter[j]['Event_Location']]++;
 	eventcount++;
 	markerv[j]=L.marker([filter[j]['Event_Lat'],filter[j]['Event_lng']]);
-	markerv[j].bindPopup("Event Name: "+ filter[j]['Event_Name'].toString()+ "<br/> Event Date: "+filter[j]['Event_Date'].toString()+"<br/> Event Time: "+ filter[j]['Event_Time'].toString());
+	markerv[j].bindPopup("Event Name: "+ filter[j]['Event_Name'].toString()+ "<br/> Event Date: "+filter[j]['Event_Date'].toString()+"<br/> Event Start Time: "+ filter[j]['Event_Time_Start'].toString()+"<br/> Event End Time:"+ filter[j]['Event_Time_End'].toString());
 }
 var xoa=0,xos=0,xoe=0,xo=0;
 for(var i=0;i<polygonsloop.length;i++)

@@ -9,11 +9,12 @@ $Event_Location = $_POST['hidden1'];
 $Event_lat = $_POST['hidden2'];
 $Event_lng = $_POST['hidden3'];
 $Event_Date = $_POST['EventDate'];
-$Event_Time = $_POST['EventTime'];
+$Event_Time_Start = $_POST['EventTimeStart'];
+$Event_Time_End = $_POST['EventTimeEnd'];
 $Event_Type = $_POST['EventType'];
 
-$sql = "INSERT INTO spatialtable (Event_Name,Event_Location,Event_Date,Event_Time,Event_Lat,Event_lng,Event_Type) VALUES
-			('$Event_Name' ,'$Event_Location','$Event_Date','$Event_Time','$Event_lat','$Event_lng','$Event_Type')";
+$sql = "INSERT INTO spatialtable (Event_Name,Event_Location,Event_Date,Event_Time_Start,Event_Lat,Event_lng,Event_Type,Event_Time_End) VALUES
+			('$Event_Name' ,'$Event_Location','$Event_Date','$Event_Time_Start','$Event_lat','$Event_lng','$Event_Type','$Event_Time_End')";
 if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";
 } else {
