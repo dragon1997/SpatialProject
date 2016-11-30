@@ -36,7 +36,7 @@ else
 	}
 	else if($date4!=null&$time4!=null&$time5!=null)
 	{
-		$sql = "select * from spatialtable WHERE Event_Date = '$date4' AND ((Event_Time_End > '$time4' AND Event_Time_End < '$time5') OR (Event_Time_Start > '$time4' AND Event_Time_Start < '$time5')) ";
+		$sql = "select * from spatialtable WHERE Event_Date = '$date4' AND ((Event_Time_End > '$time4' AND Event_Time_End < '$time5') OR (Event_Time_Start > '$time4' AND Event_Time_Start < '$time5') OR (Event_Time_Start < '$time4' AND Event_Time_End > '$time5')) ";
 	}
 	else
 	{
