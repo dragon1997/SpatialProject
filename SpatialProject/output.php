@@ -251,6 +251,7 @@ var markervE = [];
 var markervAcount=0,markervScount=0,markervEcount=0;
 for(j in filter) 
 {
+	document.write(filter[j]['Event_Name'] + ":" +filter[j]['Event_Location']+"<br/>");
 	if(filter[j]['Event_Type']=="Academic")
 	{
 		if(filter[j]['Event_ADD_Location']==null)
@@ -508,7 +509,7 @@ map.on('overlayadd', function(eo) {
     }, 10);
   }
 });
-
+//document.write(5 + 6);
 </script>
 <br/>
 <button onclick="function1()">Select markers to Route</button>
